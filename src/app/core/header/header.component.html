@@ -1,0 +1,24 @@
+<header>
+  <div>{{title}}</div>
+  <nav>
+    <ul>
+      <li>
+        <a
+          routerLink="/list"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }">List</a>
+      </li>
+      <li>
+        <a
+          routerLink="/details"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }">Details</a>
+      </li>
+      <li>
+        <a
+          routerLink="/create"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }">Create</a>
+      </li>
+    </ul>
+  </nav>
