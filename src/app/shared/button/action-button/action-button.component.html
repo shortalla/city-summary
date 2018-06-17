@@ -1,3 +1,6 @@
-<p>
-  action-button works!
-</p>
+<button
+  (click)="onClick()"
+  [ngClass]="buttonClass()"
+  [disabled]="disabled">
+  <ng-content></ng-content>
+</button>

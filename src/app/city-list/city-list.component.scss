@@ -1,0 +1,25 @@
+@import '~assets/scss/styles.scss';
+
+.list {
+  max-width: 960px;
+  width: 100%;
+  box-shadow: 1px 1px 5px theme-color('background', dark);
+}
+
+.list-header {
+  padding: 1rem;
+  background: repeating-linear-gradient(
+    -45deg,
+    theme-color('primary', 'light'),
+    theme-color('primary', 'light') 2px,
+    theme-color('primary') 2px,
+    theme-color('primary') 4px
+  );
+  @include contrast('dark');
+  text-transform: uppercase;
+  font-weight: font-weight('semi-bold');
+}
+
+a {
+  text-decoration: none;
+}

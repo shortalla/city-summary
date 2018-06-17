@@ -1,3 +1,15 @@
-<p>
-  city-list works!
-</p>
+<div fxLayout="column" fxLayoutAlign="start center">
+  <div class="list">
+    <div class="list-header">List</div>
+    <ul>
+      <li *ngFor="let city of list | async">
+        <a
+          routerLink="['details', city.id]"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }">
+          <cs-list-item [city]="city"></cs-list-item>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

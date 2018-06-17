@@ -1,5 +1,7 @@
-<header>
-  <div>{{title}}</div>
+<header fxLayout="row" fxLayoutAlign="space-between end">
+  <div class="title">
+    <span class="title-1">City</span><span class="title-2">Summary</span>
+  </div>
   <nav>
     <ul>
       <li>
@@ -10,9 +12,9 @@
       </li>
       <li>
         <a
-          routerLink="/details"
+          [routerLink]="['details', id]"
           routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }">Details</a>
+          [routerLinkActiveOptions]="{exact: true}">Details</a>
       </li>
       <li>
         <a
@@ -22,3 +24,4 @@
       </li>
     </ul>
   </nav>
+</header>

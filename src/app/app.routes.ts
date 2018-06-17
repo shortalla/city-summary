@@ -9,7 +9,7 @@ export const routes: Routes = [
         path: 'list',
         component: CityListComponent,
     }, {   
-        path: 'details',
+        path: 'details/:id',
         component: CityDetailsComponent,
     }, {   
         path: 'create',

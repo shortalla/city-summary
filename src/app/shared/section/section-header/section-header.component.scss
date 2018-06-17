@@ -1,0 +1,15 @@
+@import '~assets/scss/styles.scss';
+
+.header {
+    padding: 1rem;
+    background: repeating-linear-gradient(
+      -45deg,
+      theme-color('primary', 'light'),
+      theme-color('primary', 'light') 2px,
+      theme-color('primary') 2px,
+      theme-color('primary') 4px
+    );
+    @include contrast('dark');
+    text-transform: uppercase;
+    font-weight: font-weight('semi-bold');
+  }

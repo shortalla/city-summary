@@ -1,3 +1,11 @@
-<p>
-  city-create works!
-</p>
+<cs-form-template
+  [formGroup]="formGroup"
+  [header]="header">
+
+  <cs-action-button
+    [onClick]="addCity()"
+    [disabled]="!formGroup.valid">
+    Add city
+  </cs-action-button>
+
+</cs-form-template>

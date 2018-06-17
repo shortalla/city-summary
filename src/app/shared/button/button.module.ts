@@ -10,6 +10,10 @@ import { IconButtonComponent } from './icon-button/icon-button.component';
   declarations: [
     ActionButtonComponent,
     IconButtonComponent
+  ],
+  exports: [
+    ActionButtonComponent,
+    IconButtonComponent
   ]
 })
 export class ButtonModule { }

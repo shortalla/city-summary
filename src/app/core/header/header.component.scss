@@ -1,0 +1,35 @@
+@import '~assets/scss/styles.scss';
+
+header {
+    padding: 2rem 4rem;
+}
+
+.title {
+    font-family: 'Lobster Two', cursive;
+    @include text-setting('xxxl');
+    padding: 0.5rem;
+}
+
+.title-1 {
+    color: theme-color('primary');
+}
+
+.title-2 {
+    color: theme-color('accent');
+}
+
+ul li {
+    display: inline-block;
+    @include text-setting('lg');
+    padding: 0.5rem;
+}
+
+a {
+    font-weight: font-weight('medium');
+    text-decoration: none;
+    color: contrast('light', 'secondary');
+
+    &.active {
+        color: theme-color('accent');
+    }
+}

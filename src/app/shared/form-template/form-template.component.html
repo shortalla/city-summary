@@ -1,0 +1,39 @@
+<form
+  [formGroup]="formGroup">
+  <cs-section-header>{{header}}</cs-section-header>
+  <div class="content">
+
+    <div class="form-input-container" fxLayout="row" fxLayoutAlign="start start">
+      <label for="name">City name:</label>
+      <input type="text" name="title" formControlName="title" />
+      <cs-error-message
+        [isError]="isError()">
+        You must choose a name.
+      </cs-error-message>
+    </div>
+
+    <div class="form-input-container" fxLayout="row" fxLayoutAlign="start start">
+      <label for="content">Description:</label>
+      <textarea type="text" name="content" formControlName="content"></textarea>
+    </div>
+
+    <div class="form-input-container" fxLayout="row" fxLayoutAlign="start start">
+      <label for="content">Latitude:</label>
+      <input type="text" name="lat" formControlName="lat" />
+    </div>
+
+    <div class="form-input-container" fxLayout="row" fxLayoutAlign="start start">
+      <label for="content">Longitude:</label>
+      <input type="text" name="long" formControlName="long" />
+    </div>
+
+    <div class="form-input-container" fxLayout="row" fxLayoutAlign="start start">
+      <label for="image_url">Image URL:</label>
+      <input type="text" name="image_url" formControlName="image_url" />
+    </div>
+
+    <div class="buttons" fxLayout="row" fxLayoutAlign="end center">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</form>

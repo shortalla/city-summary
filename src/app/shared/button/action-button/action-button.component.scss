@@ -1,0 +1,16 @@
+@import '~assets/scss/styles.scss';
+
+button {
+    padding: 1rem 3rem;
+    border-radius: 4px;
+    border: 1px solid theme-color('background', 'dark');
+    background-color: theme-color('background');
+    color: theme-color('foreground');
+    @include text-setting('lg');
+    font-weight: font-weight('semi-bold');
+
+    &.primary {
+        background-color: theme-color('primary');
+        color: contrast('dark', 'primary');
+    }
+}

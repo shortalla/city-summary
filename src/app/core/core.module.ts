@@ -4,11 +4,15 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ApiService } from './api/api.service';
 import { AppRouterModule } from '../app.routes';
+import { HttpClientModule } from '@angular/common/http';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   imports: [
     CommonModule,
     AppRouterModule,
+    HttpClientModule,
+    FlexLayoutModule,
   ],
   declarations: [
     HeaderComponent,

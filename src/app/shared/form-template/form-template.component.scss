@@ -1,0 +1,44 @@
+@import '~assets/scss/styles.scss';
+
+form {
+  max-width: 960px;
+  padding: 0 1rem;
+}
+
+.content {
+	padding: 1rem;
+  box-shadow: 1px 1px 5px theme-color('background', dark);
+}
+
+label {
+	display: inline-blocK;
+	padding: 0.5rem;
+	min-width: 8rem;
+	line-height: 2.2rem;
+	color: contrast('light', 'secondary');
+}
+
+.form-input-container {
+	padding: 0.5rem;
+}
+
+input,
+textarea {
+	padding: 0.5rem;
+	height: 2rem;
+	width: 18rem;
+	max-width: 100%;
+	border: 2px solid theme-color('background', 'dark');
+	outline: none;
+	@include text-setting('base');
+
+	&:focus {
+		border-color: theme-color('accent', 'light');
+	}
+}
+
+.buttons {
+	margin-top: 2rem;
+	padding: 0.5rem;
+	border-top: 1px solid theme-color('accent', 'light');
+}
