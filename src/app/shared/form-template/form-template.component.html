@@ -26,11 +26,10 @@
         [isError]="isError(formGroup.controls['content'])">
         You must give a short summary.
       </cs-error-message>
-
     </div>
 
     <div class="form-input-container"
-      fxLayout="column" fxLayoutAlign"start stretch"
+      fxLayout="column" fxLayoutAlign="start stretch"
       fxLayout.gt-xs="row" fxLayoutAlign.gt-xs="start start">
 
       <label for="content">Latitude:</label>
@@ -66,4 +65,5 @@
       fxLayoutAlign.xs="center center">
       <ng-content></ng-content>
     </div>
+  </div>
 </form>
