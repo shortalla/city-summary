@@ -7,11 +7,10 @@ import { CityModel } from '../../models/city/city.model';
   styleUrls: ['./summary-template.component.scss']
 })
 export class SummaryTemplateComponent implements OnInit {
-  @Input() city: CityModel;
+  @Input() private city: CityModel;
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

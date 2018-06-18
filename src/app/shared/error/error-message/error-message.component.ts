@@ -12,7 +12,10 @@ export class ErrorMessageComponent implements OnInit {
 
   ngOnInit() { }
 
-  errorClass(controls) {
+  /**
+   * Apply an error class if the form is not valid
+   */
+  errorClass() {
     return {
       'is-error' : this.isError
     }

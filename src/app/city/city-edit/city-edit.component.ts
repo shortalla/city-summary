@@ -50,7 +50,10 @@ export class CityEditComponent implements OnInit {
     this.reset();
   }
 
-  reset() {
+  /**
+   * Reset the form data to the initial values
+   */
+  public reset() {
     this.formGroup.reset({
       title: this.city.title,
       content: this.city.content,
@@ -61,9 +64,9 @@ export class CityEditComponent implements OnInit {
   }
 
   /**
-   * Update the city
+   * Update the city and return to the main view
    */
-  updateCity() {
+  public updateCity() {
     const form = this.formGroup.value;
     this.apiService.updateCity(
       this.city.id,

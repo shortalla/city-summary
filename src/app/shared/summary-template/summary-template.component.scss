@@ -1,9 +1,22 @@
 @import '~assets/scss/styles.scss';
 
-img {
-    max-width: 100%;
+.summary-template__body {
+  box-shadow: 1px 1px 3px theme-color('foreground', light);
 }
 
-.summary-content {
-    padding: 1rem;
+.summary-template__image {
+  max-width: 100%;
+  width: 100%;
+}
+
+.summary-template__content {
+  padding: 1rem;
+}
+
+
+/* Screens wider than 960px */
+@media (min-width: $layout-breakpoint-sm) {
+	.summary-template {
+	  padding: 0 1rem;
+	}
 }

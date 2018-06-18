@@ -1,15 +1,24 @@
 @import '~assets/scss/styles.scss';
 
-.header {
-    padding: 1rem;
-    background: repeating-linear-gradient(
-      -45deg,
-      theme-color('primary', 'light'),
-      theme-color('primary', 'light') 2px,
-      theme-color('primary') 2px,
-      theme-color('primary') 4px
-    );
-    @include contrast('dark');
-    text-transform: uppercase;
-    font-weight: font-weight('semi-bold');
+.section-header {
+  padding: 0.25rem 1rem;
+  background: repeating-linear-gradient(
+    -45deg,
+    theme-color('primary', 'light'),
+    theme-color('primary', 'light') 2px,
+    theme-color('primary') 2px,
+    theme-color('primary') 4px
+  );
+  @include contrast('dark');
+  @include text-setting('lg');
+  font-weight: font-weight('semi-bold');
+}
+
+
+/* Screens wider than 960px */
+@media (min-width: $layout-breakpoint-sm) {
+  .section-header {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
   }
+}

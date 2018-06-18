@@ -1,4 +1,5 @@
-<div fxLayout="column" fxLayoutAlign="start center">
+<div class="list-wrapper"
+  fxLayout="column" fxLayoutAlign="start stretch">
   <div class="list">
     <cs-section-header>Cities</cs-section-header>
     <ul>
@@ -12,7 +13,9 @@
       </li>
     </ul>
   </div>
-  <div class="button">
+  <div class="button"
+    fxLayout="row" fxLayoutAlign="end center"
+    fxLayoutAlign.xs="center center">
     <cs-action-button
       (click)="addCity()"
       [primary]="true"

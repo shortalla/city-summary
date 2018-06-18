@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../core/api/api.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { CityModel } from '../../models/city/city.model';
 
 @Component({
   selector: 'cs-city-details',
@@ -9,13 +10,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./city-details.component.scss']
 })
 export class CityDetailsComponent implements OnInit {
-  city;
-  id: number;
-  notFound: boolean;
+  private city: CityModel;
   
-  constructor(private route: ActivatedRoute,
-              private router: Router,
-              private apiService: ApiService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private apiService: ApiService
+  ) { }
 
   ngOnInit() {
     this.route.params.subscribe(
@@ -28,7 +29,10 @@ export class CityDetailsComponent implements OnInit {
 		);
   }
 
-  delete() {
+  /**
+   * Delete this city
+   */
+  public delete() {
     this.apiService.delete(
       this.city.id
     ).toPromise().then(
@@ -37,11 +41,17 @@ export class CityDetailsComponent implements OnInit {
     );
   }
 
-  edit() {
+  /**
+   * Go to the edit form for this city
+   */
+  public edit() {
     this.router.navigate(['cities/edit', this.city.id]);
   }
 
-  viewMap() {
+  /**
+   * Open the map in a new tab
+   */
+  public viewMap() {
     window.open(`https://www.google.com/maps/search/?api=1&query=${this.city.lat},${this.city.long}`, '_blank')
   }
 }

@@ -1,7 +1,6 @@
 @import '~assets/scss/styles.scss';
 
 .list {
-  max-width: 960px;
   width: 100%;
   box-shadow: 1px 1px 5px theme-color('background', dark);
 }
@@ -25,5 +24,12 @@ a {
 }
 
 .button {
-  padding: 1rem;
+  padding: 1rem 0;
+}
+
+/* Screens wider than 960px */
+@media (min-width: $layout-breakpoint-sm) {
+	.list-wrapper {
+	  padding: 0 1rem;
+	}
 }

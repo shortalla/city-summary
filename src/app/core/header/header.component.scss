@@ -1,39 +1,54 @@
 @import '~assets/scss/styles.scss';
 
-header {
-    padding: 2rem 4rem;
-	background-image: url('/assets/images/city-shape.svg');
-	background-position: left top;
-	background-repeat: no-repeat;
+.header {
+	padding: 0.5rem 1rem;
+	background-image: url('/assets/images/city-shape-2.svg');
+	background-size: contain;
+	background-position: right bottom;
+	background-repeat: repeat;
+	flex-wrap: wrap;
 }
 
-.title {
-    font-family: 'Lobster Two', cursive;
-    @include text-setting('xxxl');
-    padding: 0.5rem;
+.header__title {
+	@include text-setting('xxl');
+	font-family: 'Lobster Two', cursive;
+	text-shadow: 1px 1px 3px contrast('light', 'primary');
+	padding: 0.5rem;
 }
 
-.title-primary {
-    color: theme-color('primary');
+.header__title-primary {
+	color: theme-color('primary');
 }
 
-.title-accent {
-    color: theme-color('accent');
+.header__title-accent {
+	color: theme-color('accent');
 }
 
-.nav-list-item {
-    display: inline-block;
-    @include text-setting('lg');
-    padding: 0.5rem;
+.header__nav-list-item {
+	@include text-setting('lg');
+	display: inline-block;
+	padding: 0.5rem;
 }
 
-.nav-link {
-    font-weight: font-weight('medium');
-    text-decoration: none;
-    color: contrast('light', 'secondary');
-    text-transform: uppercase;
+.header__nav-link {
+	font-weight: font-weight('medium');
+	text-decoration: none;
+	color: contrast('light', 'secondary');
+	text-transform: uppercase;
 
-    &.active {
-        color: theme-color('primary');
-    }
+	&.active {
+		color: theme-color('primary');
+	}
+}
+
+
+/* Screens larger than 600px */
+@media (min-width: $layout-breakpoint-xs) {
+	.header { 
+		padding: 2rem 4rem;
+	}
+
+	.header__title {
+		@include text-setting('xxxl');
+	}
 }

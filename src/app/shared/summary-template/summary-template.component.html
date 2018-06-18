@@ -1,11 +1,16 @@
-<div>
+<div class="summary-template">
   <cs-section-header>{{city.title}}</cs-section-header>
-  <div fxLayout="row">
-    <div fxFlex="60">
-      <img [src]="city.image_url">
+
+  <div
+    class="summary-template__body"
+    fxLayout.gt-xs="row"
+    fxLayout.xs="column">
+    <div fxFlex.gt-xs="60" fxFlex.xs>
+      <img class="summary-template__image" [src]="city.image_url">
     </div>
-    <div class="summary-content" fxFlex="40">
+
+    <p class="summary-template__content" fxFlex.gt-xs="40" fxFlex.xs>
       {{city.content}}
-    </div>
+    </p>
   </div>
 </div>

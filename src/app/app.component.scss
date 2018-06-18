@@ -1,0 +1,13 @@
+@import '~assets/scss/styles.scss';
+
+.main {
+  background: linear-gradient(
+    to bottom,
+    theme-color('background', 'dark'),
+    theme-color('background', 'light')
+  );
+}
+
+.main__content {
+  max-width: $layout-breakpoint-sm;
+}

@@ -7,13 +7,16 @@ import { CityModel } from '../../../models/city/city.model';
   styleUrls: ['./list-item.component.scss']
 })
 export class ListItemComponent implements OnInit {
-  @Input() city: CityModel;
+  @Input() private city: CityModel;
 
   constructor() { }
 
   ngOnInit() { }
 
-  iconStyle() {
+  /**
+   * The background taken from the image URL
+   */
+  public backgroundStyle() {
     return {
       'background-image': `url('${this.city.image_url}')`,
     }

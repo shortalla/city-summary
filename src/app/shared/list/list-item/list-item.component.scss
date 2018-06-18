@@ -1,25 +1,30 @@
 @import '~assets/scss/styles.scss';
 
-.item {
-  padding: 1rem;
-  text-transform: uppercase;
+.list-item {
   cursor: pointer;
   border-bottom: 1px solid theme-color('background', 'dark');
-  color: theme-color('background', 'dark');
-  @include text-setting('xl');
-  letter-spacing: 0.5em;
-  text-shadow: 1px 1px 2px theme-color('foreground', 'dark');
-  font-weight: font-weight('semi-bold');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 5em;
+  height: 8em;
   
   &:hover {
-    color: theme-color('background', 'light');
+    filter: grayscale(1);
+
+    .list-item__text {
+      transform: scale(1.2);
+      background-color: theme-color('foreground');
+    }
   }
 }
 
-.details {
-  background-color: theme-color('background', 'dark');
+.list-item__text {
+  padding: 0.5rem;
+  transition: all 0.5s linear;
+  color: theme-color('background', 'light');
+  letter-spacing: 0.5em;
+  text-shadow: 1px 1px 5px theme-color('foreground', 'dark');
+  font-weight: font-weight('semi-bold');
+  @include text-setting('xl');
+  text-transform: uppercase;
 }

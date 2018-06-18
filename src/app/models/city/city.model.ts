@@ -1,6 +1,7 @@
 
-
-
+/**
+ * Model for a single city
+ */
 export interface CityModel {
     id: number;
     title: string;

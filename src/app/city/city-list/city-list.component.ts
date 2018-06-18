@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./city-list.component.scss']
 })
 export class CityListComponent implements OnInit {
-  list$: Observable<any>;
+  private list$: Observable<any>;
 
   constructor(
     private apiService: ApiService,
@@ -20,6 +20,9 @@ export class CityListComponent implements OnInit {
     this.list$ = this.apiService.list();
   }
 
+  /**
+   * Go to the add city form
+   */
   addCity() {
     this.router.navigate(['/cities/add']);
   }

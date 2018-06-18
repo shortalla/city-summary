@@ -1,18 +1,12 @@
 @import '~assets/scss/styles.scss';
 
-form {
-  max-width: 960px;
-  padding: 0 1rem;
-}
-
 .content {
-	padding: 1rem;
-  box-shadow: 1px 1px 5px theme-color('background', dark);
+  padding: 1rem;
+  box-shadow: 1px 1px 3px theme-color('foreground', light);
 }
 
 label {
 	display: inline-blocK;
-	padding: 0.5rem;
 	min-width: 8rem;
 	line-height: 2.2rem;
 	color: contrast('light', 'secondary');
@@ -26,7 +20,7 @@ input,
 textarea {
 	padding: 0.5rem;
 	height: 2rem;
-	width: 18rem;
+  width: auto;
 	max-width: 100%;
 	border: 2px solid theme-color('background', 'dark');
 	outline: none;
@@ -41,4 +35,21 @@ textarea {
 	margin-top: 2rem;
 	padding: 0.5rem;
 	border-top: 1px solid theme-color('accent', 'light');
+}
+
+
+/* Screens at least 960px wide */
+@media (min-width: $layout-breakpoint-sm) {
+	form {
+	  padding: 0 1rem;
+  }
+
+  label {
+  	padding: 0.5rem;
+  }
+
+  input,
+  textarea {
+    width: 18rem;
+  }
 }

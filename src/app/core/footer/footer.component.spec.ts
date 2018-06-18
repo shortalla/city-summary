@@ -22,4 +22,9 @@ describe('FooterComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should output the current year', () => {
+    const now = new Date();
+    expect(component.date).toEqual(now);
+  });
 });

@@ -1,5 +1,13 @@
 @import '~assets/scss/styles.scss';
 
-footer {
-    padding: 1rem 4rem;
+.footer {
+	margin-top: 3rem;
+  padding: 1rem;
+}
+
+/* Screens larger than 600px */
+@media (min-width: $layout-breakpoint-xs) {
+	.footer { 
+		padding: 1rem 4rem;
+	}
 }
