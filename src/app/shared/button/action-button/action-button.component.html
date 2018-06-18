@@ -1,6 +1,6 @@
 <button
-  (click)="onClick()"
+  mat-button
   [ngClass]="buttonClass()"
-  [disabled]="disabled">
+  [disabled]="isDisabled">
   <ng-content></ng-content>
 </button>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { CityModel } from '../../models/city/city.model';
 
 @Component({
   selector: 'cs-summary-template',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./summary-template.component.scss']
 })
 export class SummaryTemplateComponent implements OnInit {
+  @Input() city: CityModel;
 
   constructor() { }
 

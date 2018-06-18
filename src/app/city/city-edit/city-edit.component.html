@@ -1,0 +1,18 @@
+<cs-form-template
+  *ngIf="formGroup"
+  [formGroup]="formGroup"
+  [header]="header">
+
+  <cs-action-button
+    (click)="reset()">
+    Reset fields
+  </cs-action-button>
+
+  <cs-action-button
+    (click)="updateCity()"
+    [primary]="true"
+    [isDisabled]="!formGroup.valid">
+    Update city
+  </cs-action-button>
+
+</cs-form-template>

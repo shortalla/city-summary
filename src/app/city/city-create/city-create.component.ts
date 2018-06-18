@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ApiService } from '../core/api/api.service';
+import { ApiService } from '../../core/api/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'cs-city-create',
@@ -13,7 +14,8 @@ export class CityCreateComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -30,7 +32,7 @@ export class CityCreateComponent implements OnInit {
       content: [null, Validators.required],
       lat: [null],
       long: [null],
-      image_url: [null],
+      image_url: [null, Validators.required],
     });
   }
 
@@ -45,6 +47,9 @@ export class CityCreateComponent implements OnInit {
       form.lat,
       form.long,
       form.image_url
+    ).toPromise().then(
+      success => this.router.navigate(['/cities']),
+      error => console.error(error)
     );
   }
 }

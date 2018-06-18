@@ -1,16 +1,36 @@
 @import '~assets/scss/styles.scss';
 
 button {
-    padding: 1rem 3rem;
+    padding: 0 1rem;
+    margin: 0.5rem;
     border-radius: 4px;
     border: 1px solid theme-color('background', 'dark');
-    background-color: theme-color('background');
+    background-color: theme-color('background', 'light');
     color: theme-color('foreground');
-    @include text-setting('lg');
-    font-weight: font-weight('semi-bold');
+    @include text-setting('md');
+    font-weight: font-weight('medium');
+    cursor: pointer;
+    outline: none;
+
+    &:hover {
+        background-color: theme-color('background');
+    }
 
     &.primary {
         background-color: theme-color('primary');
         color: contrast('dark', 'primary');
+
+        &:hover {
+            background-color: theme-color('primary', 'dark');
+        }
+    }
+
+    &[disabled],
+    &[disabled]:hover,
+    &[disabled].primary,
+    &[disabled].primary:hover, {
+        background-color: theme-color('background', 'dark');
+        color: contrast('light', 'disabled');
+        cursor: not-allowed;
     }
 }

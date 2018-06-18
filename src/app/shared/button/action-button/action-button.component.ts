@@ -6,12 +6,16 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./action-button.component.scss']
 })
 export class ActionButtonComponent implements OnInit {
-  @Input() onClick: () => void;
-  @Input() buttonClass?: string;
-  @Input() disabled: boolean;
+  @Input() isDisabled: boolean;
+  @Input() primary?: boolean;
 
   constructor() { }
 
   ngOnInit() {}
 
+  buttonClass() {
+    return {
+      'primary': this.primary,
+    };
+  }
 }

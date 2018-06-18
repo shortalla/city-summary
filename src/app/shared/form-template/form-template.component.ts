@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'cs-form-template',
@@ -14,8 +14,7 @@ export class FormTemplateComponent implements OnInit {
 
   ngOnInit() {}
 
-  isError() {
-    return (!this.formGroup.controls['title'].valid
-      && this.formGroup.controls['title'].touched);
+  isError(control: AbstractControl) {
+    return !control.valid && control.touched;
   }
 }

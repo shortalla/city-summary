@@ -2,6 +2,9 @@
 
 header {
     padding: 2rem 4rem;
+	background-image: url('/assets/images/city-shape.svg');
+	background-position: left top;
+	background-repeat: no-repeat;
 }
 
 .title {
@@ -10,26 +13,27 @@ header {
     padding: 0.5rem;
 }
 
-.title-1 {
+.title-primary {
     color: theme-color('primary');
 }
 
-.title-2 {
+.title-accent {
     color: theme-color('accent');
 }
 
-ul li {
+.nav-list-item {
     display: inline-block;
     @include text-setting('lg');
     padding: 0.5rem;
 }
 
-a {
+.nav-link {
     font-weight: font-weight('medium');
     text-decoration: none;
     color: contrast('light', 'secondary');
+    text-transform: uppercase;
 
     &.active {
-        color: theme-color('accent');
+        color: theme-color('primary');
     }
 }

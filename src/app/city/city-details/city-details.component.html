@@ -1,0 +1,22 @@
+<div *ngIf="city">
+  <cs-summary-template
+    [city]="city">
+  </cs-summary-template>
+  
+  <cs-action-button
+    (click)="delete()"
+    [isDisabled]="!city">
+    Delete
+  </cs-action-button>
+  <cs-action-button
+    (click)="edit()"
+    [isDisabled]="!city">
+    Edit
+  </cs-action-button>
+  <cs-action-button
+    (click)="viewMap()"
+    [primary]="true"
+    [isDisabled]="!city.lat || !city.long">
+    View maps
+  </cs-action-button>
+</div>

@@ -3,8 +3,9 @@
   [header]="header">
 
   <cs-action-button
-    [onClick]="addCity()"
-    [disabled]="!formGroup.valid">
+    (click)="addCity()"
+    [primary]="true"
+    [isDisabled]="!formGroup.valid">
     Add city
   </cs-action-button>
 

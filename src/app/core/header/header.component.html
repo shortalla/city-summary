@@ -1,26 +1,14 @@
 <header fxLayout="row" fxLayoutAlign="space-between end">
   <div class="title">
-    <span class="title-1">City</span><span class="title-2">Summary</span>
+    <span class="title-primary">City</span><span class="title-accent">Summary</span>
   </div>
   <nav>
     <ul>
-      <li>
-        <a
-          routerLink="/list"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }">List</a>
-      </li>
-      <li>
-        <a
-          [routerLink]="['details', id]"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{exact: true}">Details</a>
-      </li>
-      <li>
-        <a
-          routerLink="/create"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }">Create</a>
+      <li class="nav-list-item">
+        <a 
+          class="nav-link"
+          routerLink="/"
+          routerLinkActive="active">Home</a>
       </li>
     </ul>
   </nav>

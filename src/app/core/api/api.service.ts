@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 import { environment } from '../../../environments/environment';
 
 /**
@@ -20,7 +22,9 @@ export class ApiService {
   public list(): Observable<any> {
     return this.httpClient.get(
       `${this._apiUrl}/posts`
-    );
+    ).map(
+      response => response
+    ).catch((error: any) => Observable.throw(error));
   }
 
   /**
@@ -29,7 +33,9 @@ export class ApiService {
   public getCity(id: number): Observable<any> {
     return this.httpClient.get(
       `${this._apiUrl}/posts/${id}`
-    );
+    ).map(
+      response => response
+    ).catch((error: any) => Observable.throw(error));
   }
 
   /**
@@ -46,16 +52,15 @@ export class ApiService {
     }};
     return this.httpClient.post(
       `${this._apiUrl}/posts/`, body
-    ).toPromise().then(
-        success => console.log(success),
-        err => console.log(err)
-    );
+    ).map(
+      response => response
+    ).catch((error: any) => Observable.throw(error));
   }
 
   /**
    * Endpoint for updating an existing city in the list
    */
-  public updateCity(title: string, content: string,
+  public updateCity(id: number, title: string, content: string,
                     lat: string, long: string, image_url: string) {
     const body = { post: {
         title: title,
@@ -64,12 +69,11 @@ export class ApiService {
         long: long,
         image_url: image_url
     }};
-    return this.httpClient.post(
-      `${this._apiUrl}/posts/`, body
-    ).toPromise().then(
-        success => console.log(success),
-        err => console.log(err)
-    );
+    return this.httpClient.put(
+      `${this._apiUrl}/posts/${id}`, body
+    ).map(
+      response => response
+    ).catch((error: any) => Observable.throw(error));
   }
 
   /**
@@ -78,9 +82,8 @@ export class ApiService {
   public delete(id: number) {
     return this.httpClient.delete(
         `${this._apiUrl}/posts/${id}`
-    ).toPromise().then(
-        success => console.log(success),
-        err => console.log(err)
-    );
+    ).map(
+      response => response
+    ).catch((error: any) => Observable.throw(error));
   }
 }

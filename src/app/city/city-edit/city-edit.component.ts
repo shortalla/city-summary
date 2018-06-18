@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ApiService } from '../core/api/api.service';
-import { CityModel } from '../models/city/city.model';
-import { ActivatedRoute } from '@angular/router';
+import { ApiService } from '../../core/api/api.service';
+import { switchMap} from 'rxjs/operators/switchMap';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 @Component({
   selector: 'cs-city-edit',
@@ -11,25 +11,28 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CityEditComponent implements OnInit {
   private formGroup: FormGroup;
-  private city: CityModel;
+  private city;
   private header: string;
   
   constructor(
     private formBuilder: FormBuilder,
     private apiService: ApiService,
-    private activatedRoute: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe(
-      () => {
-        const params = this.activatedRoute.snapshot.params;
-        this.apiService.getCity(
-          params.id
-        ).toPromise().then(city => this.city = city);
-      }
-    );
-    this.initForm();
+    this.route.params.subscribe(
+			params => {
+        const id = this.route.snapshot.params.id;
+				this.apiService.getCity(id).toPromise().then(
+          city => {
+            this.city = city;
+            this.initForm();
+          }
+        );
+			}
+		);
     this.header = 'Add city';
   }
 
@@ -42,14 +45,19 @@ export class CityEditComponent implements OnInit {
       content: [null, Validators.required],
       lat: [null],
       long: [null],
-      image_url: [null],
+      image_url: [null, Validators.required],
     });
+    this.reset();
+  }
 
-    this.formGroup.value.title = this.city.title;
-    this.formGroup.value.content = this.city.content;
-    this.formGroup.value.lat = this.city.lat;
-    this.formGroup.value.long = this.city.long;
-    this.formGroup.value.image_url = this.city.image_url;
+  reset() {
+    this.formGroup.reset({
+      title: this.city.title,
+      content: this.city.content,
+      lat: this.city.lat,
+      long: this.city.long,
+      image_url: this.city.image_url
+    });
   }
 
   /**
@@ -58,11 +66,15 @@ export class CityEditComponent implements OnInit {
   updateCity() {
     const form = this.formGroup.value;
     this.apiService.updateCity(
+      this.city.id,
       form.title,
       form.content,
       form.lat,
       form.long,
       form.image_url
+    ).toPromise().then(
+      success => this.router.navigate(['/cities']),
+      error => console.error(error)
     );
   }
 }

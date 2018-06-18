@@ -1,24 +1,18 @@
 import { ModuleWithProviders }  from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CityListComponent } from './city-list/city-list.component';
-import { CityDetailsComponent } from './city-details/city-details.component';
-import { CityCreateComponent } from './city-create/city-create.component';
+import { CityComponent } from './city/city.component';
+import { cityRoutes } from './city/city.routes';
 
 export const routes: Routes = [
     {
-        path: 'list',
-        component: CityListComponent,
-    }, {   
-        path: 'details/:id',
-        component: CityDetailsComponent,
-    }, {   
-        path: 'create',
-        component: CityCreateComponent,
+        path: 'cities',
+        component: CityComponent,
+        children: cityRoutes
     }, {
         path: '',
-        redirectTo: 'list',
+        redirectTo: 'cities',
         pathMatch: 'full',
     },
 ];
 
-export const AppRouterModule: ModuleWithProviders = RouterModule.forRoot(routes, {});
+export const AppRoutingModule: ModuleWithProviders = RouterModule.forRoot(routes, {});
